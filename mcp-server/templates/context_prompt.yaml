@@ -1,0 +1,31 @@
+template_id: "context_prompt_template"
+name: "Contextual Prompt"
+description: "Provides specific background information relevant to the task"
+tags: ["context", "background"]
+context_requirements:
+  max_size_percentage: 0.7
+  optimal_remaining: 0.3
+execution:
+  mode: "single_chat"
+  temperature: 0.8
+pattern: |
+  Context: {context}
+  
+  Based on this context:
+  
+  {instruction}
+  
+  {input}
+inputs:
+  - name: "context"
+    type: "text"
+    required: true
+    description: "Background information relevant to the task"
+  - name: "instruction"
+    type: "text"
+    required: true
+    description: "Task instruction"
+  - name: "input"
+    type: "text"
+    required: true
+    description: "Content to process"

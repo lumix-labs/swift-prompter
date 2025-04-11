@@ -1,0 +1,25 @@
+template_id: "self_consistency_template"
+name: "Self-Consistency Prompt"
+description: "Generates multiple reasoning paths to find the most consistent answer"
+tags: ["reasoning", "verification"]
+context_requirements:
+  max_size_percentage: 0.6
+  optimal_remaining: 0.4
+execution:
+  mode: "multi_chat"
+  temperature: 0.8
+pattern: |
+  {instruction}
+  
+  {input}
+  
+  Let's think step by step and explain why. After working through the problem, I'll provide a clear final answer.
+inputs:
+  - name: "instruction"
+    type: "text"
+    required: true
+    description: "Task instruction that requires verification"
+  - name: "input"
+    type: "text"
+    required: true
+    description: "Problem or question to answer"

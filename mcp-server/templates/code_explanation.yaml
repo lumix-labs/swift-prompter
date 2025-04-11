@@ -1,0 +1,32 @@
+template_id: "code_explanation_template"
+name: "Code Explanation"
+description: "Explains code functionality with clear breakdown"
+tags: ["code", "explanation"]
+context_requirements:
+  max_size_percentage: 0.7
+  optimal_remaining: 0.3
+execution:
+  mode: "single_chat"
+  temperature: 0.1
+pattern: |
+  Explain the following {language} code in detail:
+  
+  ```{language}
+  {code}
+  ```
+  
+  Provide a breakdown of:
+  - Overall purpose
+  - Key components and functions
+  - The logic flow
+  - Any potential issues or best practices that could be applied
+inputs:
+  - name: "language"
+    type: "select"
+    options: ["python", "javascript", "java", "cpp", "go", "ruby", "php", "bash", "csharp", "typescript"]
+    default: "python"
+    required: true
+  - name: "code"
+    type: "text"
+    required: true
+    description: "Code to explain"

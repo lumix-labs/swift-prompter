@@ -1,0 +1,34 @@
+template_id: "summarization_template"
+name: "Document Summarization"
+description: "Generates concise summaries with key points"
+tags: ["summarization", "document_processing"]
+context_requirements:
+  max_size_percentage: 0.7
+  optimal_remaining: 0.3
+execution:
+  mode: "single_chat"  # or "multi_chat"
+pattern: |
+  You are an expert summarizer focusing on clarity and brevity.
+  
+  Document to summarize:
+  {document_content}
+  
+  Please provide a {length} summary that highlights:
+  {focus_points}
+  
+  Use this format for your response:
+  - Key Insight 1: [brief explanation]
+  - Key Insight 2: [brief explanation]
+  [continue as needed]
+inputs:
+  - name: "document_content"
+    type: "text"
+    required: true
+  - name: "length"
+    type: "select"
+    options: ["concise", "detailed"]
+    default: "concise"
+  - name: "focus_points"
+    type: "text"
+    required: false
+    default: "main arguments, evidence, and conclusions"

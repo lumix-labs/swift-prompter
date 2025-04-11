@@ -1,0 +1,23 @@
+template_id: "zero_shot_template"
+name: "Zero-Shot Prompt"
+description: "Simple prompt with task description but no examples"
+tags: ["basic", "zero-shot"]
+context_requirements:
+  max_size_percentage: 0.8
+  optimal_remaining: 0.2
+execution:
+  mode: "single_chat"
+  temperature: 0.1
+pattern: |
+  {instruction}
+
+  {input}
+inputs:
+  - name: "instruction"
+    type: "text"
+    required: true
+    description: "Clear instruction for the task (e.g., 'Classify this review as POSITIVE, NEUTRAL or NEGATIVE')"
+  - name: "input"
+    type: "text"
+    required: true
+    description: "Content to process"

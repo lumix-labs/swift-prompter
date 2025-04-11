@@ -1,0 +1,30 @@
+template_id: "step_back_template"
+name: "Step-Back Prompting"
+description: "Encourages consideration of broader principles before solving a specific task"
+tags: ["reasoning", "abstraction"]
+context_requirements:
+  max_size_percentage: 0.6
+  optimal_remaining: 0.4
+execution:
+  mode: "single_chat"
+  temperature: 0.8
+pattern: |
+  {instruction}
+
+  {input}
+  
+  Before answering the specific question, let's first consider the general principles or concepts related to this topic.
+  
+  General Principles:
+  [Think about the broader concepts related to this question]
+  
+  Now, based on these principles, let's address the specific question:
+inputs:
+  - name: "instruction"
+    type: "text"
+    required: true
+    description: "Task description"
+  - name: "input"
+    type: "text"
+    required: true
+    description: "Specific problem to solve"

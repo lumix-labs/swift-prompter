@@ -1,0 +1,29 @@
+template_id: "system_prompt_template"
+name: "System Prompt"
+description: "Sets overall context and purpose for the model"
+tags: ["system", "context"]
+context_requirements:
+  max_size_percentage: 0.7
+  optimal_remaining: 0.3
+execution:
+  mode: "single_chat"
+  temperature: 0.7
+pattern: |
+  {system_instruction}
+  
+  {input}
+  
+  {output_format}
+inputs:
+  - name: "system_instruction"
+    type: "text"
+    required: true
+    description: "Overall instruction defining the model's purpose (e.g., 'You are an expert translator')"
+  - name: "input"
+    type: "text"
+    required: true
+    description: "Content to process"
+  - name: "output_format"
+    type: "text"
+    required: false
+    description: "Optional specification for output format"

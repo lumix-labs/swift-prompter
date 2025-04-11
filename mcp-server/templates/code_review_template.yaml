@@ -1,0 +1,52 @@
+template_id: "code_review_template"
+name: "Code Review Assistant"
+description: "Provides structured code reviews with enhancement suggestions"
+tags: ["programming", "code_review", "development"]
+context_requirements:
+  max_size_percentage: 0.8
+  optimal_remaining: 0.2
+execution:
+  mode: "single_chat"
+pattern: |
+  You are an expert code reviewer with deep knowledge of best practices in {language}.
+  
+  Code to review:
+  ```{language}
+  {code_content}
+  ```
+  
+  Provide a thorough review that includes:
+  1. Security issues
+  2. Performance considerations
+  3. Maintainability aspects
+  4. Suggestions for improvement
+  
+  Focus particularly on {focus_areas} if specified.
+  
+  Format your response as:
+  
+  ## Summary
+  [Brief overall assessment]
+  
+  ## Issues Found
+  - **Issue 1**: [Description and impact]
+    - **Suggestion**: [Code example or approach to fix]
+  
+  ## Improvement Opportunities
+  - **Opportunity 1**: [Description]
+    - **Example**: [Code example showing implementation]
+  
+  ## Best Practices
+  [Any relevant best practices not covered above]
+inputs:
+  - name: "code_content"
+    type: "text"
+    required: true
+  - name: "language"
+    type: "select"
+    options: ["javascript", "typescript", "python", "java", "go", "rust", "c++", "c#", "php"]
+    default: "javascript"
+  - name: "focus_areas"
+    type: "text"
+    required: false
+    default: "overall quality"

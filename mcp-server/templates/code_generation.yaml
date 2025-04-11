@@ -1,0 +1,36 @@
+template_id: "code_generation_template"
+name: "Code Generation"
+description: "Generates code with proper documentation and error handling"
+tags: ["code", "programming"]
+context_requirements:
+  max_size_percentage: 0.7
+  optimal_remaining: 0.3
+execution:
+  mode: "single_chat"
+  temperature: 0.1
+pattern: |
+  {programming_task}
+  
+  {specifications}
+  
+  Language: {language}
+  
+  Please write well-documented code that includes:
+  - Error handling
+  - Clear variable names
+  - Comments explaining the logic
+  - Best practices for {language}
+inputs:
+  - name: "programming_task"
+    type: "text"
+    required: true
+    description: "Description of the programming task"
+  - name: "specifications"
+    type: "text"
+    required: false
+    description: "Detailed specifications or requirements"
+  - name: "language"
+    type: "select"
+    options: ["Python", "JavaScript", "Java", "C++", "Go", "Ruby", "PHP", "Bash", "C#", "TypeScript"]
+    default: "Python"
+    required: true

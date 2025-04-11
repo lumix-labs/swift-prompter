@@ -1,0 +1,57 @@
+# Model configuration presets based on Google's prompt engineering research
+# These configurations can be referenced in templates
+
+# General-purpose config for factual tasks
+factual_preset:
+  temperature: 0.1
+  top_k: 20
+  top_p: 0.9
+  max_tokens: 1024
+  description: "Low temperature for factual, deterministic responses"
+
+# Creative config for generation tasks
+creative_preset:
+  temperature: 0.9
+  top_k: 40
+  top_p: 0.99
+  max_tokens: 2048
+  description: "Higher temperature for creative, diverse responses"
+
+# Balanced config for mixed tasks
+balanced_preset:
+  temperature: 0.5
+  top_k: 30
+  top_p: 0.95
+  max_tokens: 1024
+  description: "Balanced settings for general use cases"
+
+# Code generation config
+code_preset:
+  temperature: 0.1
+  top_k: 20
+  top_p: 0.9
+  max_tokens: 2048
+  description: "Optimized for code generation with reduced randomness"
+
+# Mathematical reasoning config
+math_preset:
+  temperature: 0.0
+  top_k: 1
+  top_p: 0.0
+  max_tokens: 1024
+  description: "Zero temperature for deterministic mathematical reasoning"
+
+# Task-specific configurations
+classification_preset:
+  temperature: 0.1
+  top_k: 5
+  top_p: 0.8
+  max_tokens: 512
+  description: "Optimized for classification tasks"
+
+summarization_preset:
+  temperature: 0.3
+  top_k: 30
+  top_p: 0.9
+  max_tokens: 1024
+  description: "Balanced for accurate but flowing summaries"

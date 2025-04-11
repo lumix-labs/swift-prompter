@@ -1,0 +1,31 @@
+template_id: "chain_of_thought_template"
+name: "Chain of Thought Prompt"
+description: "Encourages step-by-step reasoning for complex tasks"
+tags: ["reasoning", "problem-solving"]
+context_requirements:
+  max_size_percentage: 0.6
+  optimal_remaining: 0.4
+execution:
+  mode: "single_chat"
+  temperature: 0.0
+pattern: |
+  {instruction}
+
+  {example_cot}
+
+  {input}
+
+  Let's think step by step.
+inputs:
+  - name: "instruction"
+    type: "text"
+    required: true
+    description: "Task description that requires reasoning"
+  - name: "example_cot"
+    type: "text"
+    required: false
+    description: "Optional example showing step-by-step reasoning"
+  - name: "input"
+    type: "text"
+    required: true
+    description: "Problem to solve"

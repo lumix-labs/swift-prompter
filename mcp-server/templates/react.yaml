@@ -1,0 +1,35 @@
+template_id: "react_template"
+name: "ReAct (Reason & Act)"
+description: "Combines reasoning with actions for complex problem-solving"
+tags: ["reasoning", "action", "complex"]
+context_requirements:
+  max_size_percentage: 0.5
+  optimal_remaining: 0.5
+execution:
+  mode: "multi_chat"
+  temperature: 0.1
+pattern: |
+  {instruction}
+  
+  {input}
+  
+  To solve this problem, I'll use a reasoning and action approach:
+  
+  1. I'll think through what we need to solve the problem
+  2. For each step, I'll reason about what to do
+  3. I'll take specific actions to gather information
+  4. I'll observe the results
+  5. I'll continue with this process until I reach the final answer
+  
+  Let's begin:
+  
+  Thought: [I need to understand what the problem is asking for]
+inputs:
+  - name: "instruction"
+    type: "text"
+    required: true
+    description: "Clear instruction for the complex task"
+  - name: "input"
+    type: "text"
+    required: true
+    description: "Complex problem to solve"

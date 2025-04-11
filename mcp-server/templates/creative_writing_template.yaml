@@ -1,0 +1,49 @@
+template_id: "creative_writing_template"
+name: "Creative Writing Assistant"
+description: "Generates creative content based on specified parameters"
+tags: ["writing", "creative", "content_generation"]
+context_requirements:
+  max_size_percentage: 0.6
+  optimal_remaining: 0.4
+execution:
+  mode: "multi_chat"
+pattern: |
+  You are a creative writing assistant specializing in {genre} with a talent for engaging narratives.
+  
+  Your task is to create a {length} {content_type} that features:
+  - Setting: {setting}
+  - Main character traits: {character_traits}
+  - Tone: {tone}
+  - Additional elements: {additional_elements}
+  
+  Ensure the content is original, engaging, and follows best practices for {genre} writing.
+  
+  Begin your response with a brief overview of your approach, then provide the full content.
+inputs:
+  - name: "content_type"
+    type: "select"
+    options: ["short story", "poem", "dialogue", "scene description", "character sketch"]
+    default: "short story"
+  - name: "genre"
+    type: "select"
+    options: ["science fiction", "fantasy", "mystery", "romance", "horror", "literary", "historical"]
+    default: "fantasy"
+  - name: "length"
+    type: "select"
+    options: ["brief", "moderate", "detailed"]
+    default: "moderate"
+  - name: "setting"
+    type: "text"
+    required: true
+  - name: "character_traits"
+    type: "text"
+    required: false
+    default: "resourceful, curious, determined"
+  - name: "tone"
+    type: "select"
+    options: ["humorous", "dark", "uplifting", "melancholic", "mysterious", "neutral"]
+    default: "neutral"
+  - name: "additional_elements"
+    type: "text"
+    required: false
+    default: "unexpected twist, vivid imagery"

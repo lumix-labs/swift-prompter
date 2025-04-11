@@ -1,0 +1,31 @@
+template_id: "few_shot_template"
+name: "Few-Shot Prompt"
+description: "Includes examples to demonstrate desired pattern"
+tags: ["few-shot", "examples"]
+context_requirements:
+  max_size_percentage: 0.7
+  optimal_remaining: 0.3
+execution:
+  mode: "single_chat"
+  temperature: 0.1
+pattern: |
+  {instruction}
+
+  Here are some examples:
+  {examples}
+
+  Now, process this input:
+  {input}
+inputs:
+  - name: "instruction"
+    type: "text"
+    required: true
+    description: "Clear instruction for the task"
+  - name: "examples"
+    type: "text"
+    required: true
+    description: "3-5 examples showing input and expected output format"
+  - name: "input"
+    type: "text"
+    required: true
+    description: "Content to process"

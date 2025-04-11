@@ -1,0 +1,40 @@
+template_id: "role_prompt_template"
+name: "Role Prompt"
+description: "Assigns a specific role or character for the model to adopt"
+tags: ["role", "perspective"]
+context_requirements:
+  max_size_percentage: 0.7
+  optimal_remaining: 0.3
+execution:
+  mode: "single_chat"
+  temperature: 1.0
+pattern: |
+  I want you to act as {role} with a {style} style.
+  
+  {role_description}
+  
+  {task}
+  
+  {input}
+inputs:
+  - name: "role"
+    type: "text"
+    required: true
+    description: "Role for the model (e.g., 'travel guide', 'business analyst')"
+  - name: "style"
+    type: "select"
+    options: ["humorous", "formal", "inspirational", "direct", "influential", "persuasive", "descriptive", "informal"]
+    default: "formal"
+    required: true
+  - name: "role_description"
+    type: "text"
+    required: false
+    description: "Optional detailed description of the role's expertise and viewpoint"
+  - name: "task"
+    type: "text"
+    required: true
+    description: "What the role should do"
+  - name: "input"
+    type: "text"
+    required: true
+    description: "Content to process"

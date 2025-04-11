@@ -1,0 +1,34 @@
+template_id: "json_output_template"
+name: "JSON Output Format"
+description: "Structures response as JSON for easier integration"
+tags: ["format", "structured", "json"]
+context_requirements:
+  max_size_percentage: 0.7
+  optimal_remaining: 0.3
+execution:
+  mode: "single_chat"
+  temperature: 0.1
+pattern: |
+  {instruction}
+  
+  {input}
+  
+  Return valid JSON using this schema:
+  ```
+  {schema}
+  ```
+  
+  JSON Response:
+inputs:
+  - name: "instruction"
+    type: "text"
+    required: true
+    description: "Task instruction"
+  - name: "input"
+    type: "text"
+    required: true
+    description: "Content to process"
+  - name: "schema"
+    type: "text"
+    required: true
+    description: "JSON schema definition"
