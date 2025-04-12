@@ -2,7 +2,7 @@
 
 An MCP server implementation that brings Google's research-backed prompt engineering techniques directly to Claude. Swift Prompter operationalizes the strategies from Google's Prompt Engineering whitepaper, delivering proven patterns for more effective AI interactions.
 
-![alt text](images/how-to-use.png)
+![Swift Prompter in action](images/how-to-use.png)
 
 ## Features
 
@@ -30,10 +30,6 @@ An MCP server implementation that brings Google's research-backed prompt enginee
   * Inputs:
     * `template_id` (string): Template to use
     * `inputs` (object): Values for template variables
-
-* **context-status**
-  * Checks current context utilization and provides recommendations
-  * No inputs required
 
 ## Implemented Techniques from Google's Whitepaper
 
@@ -92,7 +88,7 @@ Swift Prompter enforces the research-backed workflow for optimal AI responses:
 ## Scientific Foundation
 
 This implementation is based directly on Google's comprehensive prompt engineering research:
-* Documented techniques from "Prompt Engineering: A Practical Guide" (Google, 2023)
+* Documented techniques from "Prompt Engineering by Lee Boonstra" (Google, 2024)
 * Empirically validated patterns showing 20-50% performance improvements on reasoning tasks
 * Systematic approach to selecting techniques based on task requirements
 
